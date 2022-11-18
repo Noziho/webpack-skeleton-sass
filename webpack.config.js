@@ -32,9 +32,9 @@ const development = {
     module: {
         rules: [
             {
-                test: /\.css$/i,
+                test: /\.s?css$/i,
                 use: ['style-loader', {
-                    loader: "css-loader",
+                    loader: "styles-loader",
                     options: {
                         import: true,
                         sourceMap: true,
@@ -62,13 +62,13 @@ const production = {
     module: {
         rules: [
             {
-                test: /\.css$/i,
+                test: /\.s?css$/i,
                 use: [
                     {
                         loader: MiniCssExtractPlugin.loader,
                     },
                     {
-                        loader: "css-loader",
+                        loader: "styles-loader",
                         options: {
                             import: true,
                             sourceMap: true,
@@ -105,7 +105,7 @@ const production = {
 
     plugins: [
         new MiniCssExtractPlugin({
-            filename: "./css/[name].css",
+            filename: "./styles/[name].styles",
         }),
     ]
 }
